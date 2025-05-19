@@ -750,3 +750,9 @@ details p {
     border-radius: 10px;
     transition: 0.3s;
 }
+
+img, .img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
