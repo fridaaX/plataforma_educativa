@@ -1,0 +1,200 @@
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 25px;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+
+     background-image: url('/juego3.0/img/fondo.jpg'); /* Cambia la ruta si es necesario */
+    background-size: cover;      /* Que cubra todo el cuerpo */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  h1 {
+    color: #ff69b4;
+  }
+  
+  
+  .game-container {
+    display: flex;
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    gap: 20px;
+  }
+
+  .drop-zone, .pieces {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    border-radius: 15px;
+    padding: 20px;
+  }
+
+  .drop-zone {
+    background-color: #fff8dc;
+    border: 3px dashed #ccc;
+  }
+
+  .pieces {
+    background-color: #e0f7fa;
+  }
+
+  .drop-zone img, .pieces img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+  
+  .drop-zone img {
+    border: 2px dashed transparent;
+    padding: 5px;
+  }
+  
+  .drop-zone img.correct {
+    border: 2px solid green;
+  }
+  
+  .drop-zone img.wrong {
+    border: 2px solid red;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Contenedor final */
+
+/* Mensaje */
+.final-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Contenedor de botones */
+.botones-final {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .botones-final {
+    flex-direction: row;
+  }
+}
+
+.final-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #f0f8ff;
+}
+
+.mensaje-error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffdddd;
+  color: #e74c3c;
+  padding: 20px 40px;
+  border: 2px solid #e74c3c;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.header2 {
+	position: absolute; 
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: flex-start; 
+	justify-content: flex-start;
+	padding: 10px;
+}
+
+
+.back-button {
+	width: 120px;
+	height: 60px;
+	cursor: pointer;
+}
+
+.section7 {
+    margin: 20px auto;
+    padding: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;            /* Más flexible que 75% */
+    max-width: 900px;      /* Limita el tamaño en pantallas grandes */
+    box-sizing: border-box;
+}
+
+/* Ajuste específico para pantallas pequeñas */
+@media (max-width: 600px) {
+    .section7 {
+        padding: 20px;     /* Reduce el espacio interno */
+        width: 95%;
+    }
+}
+
+
+.drop-img.drop-target {
+  border: 2px dashed blue;
+}
+
+.draggable.seleccionada {
+  border: 3px solid #4caf50;
+  box-shadow: 0 0 10px #4caf50;
+  transform: scale(1.05);
+}
+
+.img-intro {
+    width: 50vw;                
+    max-width: 500px;           
+    height: auto;
+    cursor: pointer;
+    border: 5px solid transparent;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+
+.level-button {
+	padding: 20px 30px; /* Tamaño cómodo */
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	border-radius: 8px; /* Bordes más suaves */
+	cursor: pointer;
+	background: linear-gradient(45deg, #d316c3, #cf6dfc, #f36d14, #eb547a);
+	background-size: 200% 200%;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease-in-out;
+	box-shadow: 0 4px 10px rgba(255, 182, 193, 0.5); /* Sombra con un tono pastel */
+}
+

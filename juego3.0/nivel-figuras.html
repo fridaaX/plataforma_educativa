@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nivel de Figuras</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <div class="header2">
+        <a href="./niveles.html" data-page-no="2">
+            <img src="./img/flecha2.png" alt="Regresar" class="back-button">
+        </a>
+    </div>
+  <h1>Rompecabezas: Figuras</h1>
+  <div class="game-container">
+    <div class="drop-zone">
+      <img src="img/square-sil.png" data-shape="square" class="drop-img" />
+      <img src="img/triangle-sil.png" data-shape="triangle" class="drop-img" />
+      <img src="img/circle-sil.png" data-shape="circle" class="drop-img" />
+      <img src="img/star-sil.png" data-shape="star" class="drop-img" />
+    </div>
+
+    <div class="pieces">
+      <img src="img/triangle.png" data-shape="triangle" draggable="true" class="draggable" />
+      <img src="img/circle.png" data-shape="circle" draggable="true" class="draggable" />
+      <img src="img/square.png" data-shape="square" draggable="true" class="draggable" />
+      <img src="img/star.png" data-shape="star" draggable="true" class="draggable" />
+    </div>
+  </div>
+
+  <script src="js/figuras.js"></script>
+</body>
+</html>
