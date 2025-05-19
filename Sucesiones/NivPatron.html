@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecciona un Nivel</title>
+    <link rel="stylesheet" href="estilos.css" >
+
+</head>
+<body class="cuerpo_niveles_Pat">
+
+    <div class="header2">
+        <a href="/index.html">
+            <img src="./IMG/Botones/flecha2.png" alt="Regresar" class="back-button">
+        </a>
+    </div>
+
+    <section class="section4">
+    <div class="container3">
+        <h1 class ="nivel">Secuencia Combinando el atributo Forma y Tamaño</h1>
+
+        <div class="levels">
+            <button class="level-button1" onclick="startGame(1)">Nivel 1</button>
+            <button class="level-button1" onclick="startGame(2)">Nivel 2</button>
+            <button class="level-button1" onclick="startGame(3)">Nivel 3</button>
+            <button class="level-button1" onclick="startGame(4)">Nivel 4</button>
+            <button class="level-button1" onclick="startGame(5)">Nivel 5</button>
+            <button class="level-button1" onclick="startGame(6)">Nivel 6</button>
+            <button class="level-button1" onclick="startGame(7)">Nivel 7</button>
+            <button class="level-button1" onclick="startGame(8)">Nivel 8</button>
+        </div>
+
+        <h1 class ="nivel">Secuencia Combinando el atributo Forma y Rotacion</h1>
+        <div class="levels">
+            <button class="level-button1" onclick="startGame1(1)">Nivel 1</button>
+            <button class="level-button1" onclick="startGame1(2)">Nivel 2</button>
+            <button class="level-button1" onclick="startGame1(3)">Nivel 3</button>
+            <button class="level-button1" onclick="startGame1(4)">Nivel 4</button>
+            <button class="level-button1" onclick="startGame1(5)">Nivel 5</button>
+            <button class="level-button1" onclick="startGame1(6)">Nivel 6</button>
+            <button class="level-button1" onclick="startGame1(7)">Nivel 7</button>
+            <button class="level-button1" onclick="startGame1(8)">Nivel 8</button>
+        </div>
+
+        <h1 class ="nivel">Secuencia Combinando el atributo Tamaño y Rotacion</h1>
+        <div class="levels">
+            <button class="level-button1" onclick="startGame2(1)">Nivel 1</button>
+            <button class="level-button1" onclick="startGame2(2)">Nivel 2</button>
+            <button class="level-button1" onclick="startGame2(3)">Nivel 3</button>
+            <button class="level-button1" onclick="startGame2(4)">Nivel 4</button>
+            <button class="level-button1" onclick="startGame2(5)">Nivel 5</button>
+            <button class="level-button1" onclick="startGame2(6)">Nivel 6</button>
+            <button class="level-button1" onclick="startGame2(7)">Nivel 7</button>
+            <button class="level-button1" onclick="startGame2(8)">Nivel 8</button>
+        </div>
+
+        <h1 class ="nivel">Secuencias Varias</h1>
+        <div class="levels">
+            <button class="level-button1" onclick="startGame3(1)">Nivel 1</button>
+            <button class="level-button1" onclick="startGame3(2)">Nivel 2</button>
+            <button class="level-button1" onclick="startGame3(3)">Nivel 3</button>
+            <button class="level-button1" onclick="startGame3(4)">Nivel 4</button>
+            <button class="level-button1" onclick="startGame3(5)">Nivel 5</button>
+            <button class="level-button1" onclick="startGame3(6)">Nivel 6</button>
+            <button class="level-button1" onclick="startGame3(7)">Nivel 7</button>
+            <button class="level-button1" onclick="startGame3(8)">Nivel 8</button>
+        </div>
+    </div>
+    </section>
+
+    <script>
+        function startGame(nivel) {
+            window.location.href = `Patron_FT.html?nivel=${nivel}`;
+        }
+
+        function startGame1(nivel) {
+            window.location.href = `Patron_FR.html?nivel=${nivel}`;
+        }
+        function startGame2(nivel) {
+            window.location.href = `Patron_TR.html?nivel=${nivel}`;
+        }
+        function startGame3(nivel) {
+            window.location.href = `Patron_Varios.html?nivel=${nivel}`;
+        }
+    </script>
+</body>
+</html>
