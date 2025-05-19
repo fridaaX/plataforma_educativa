@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Sucesiones Numéricas</title>
+    <link rel="stylesheet" href="estilos.css" >
+
+</head>
+<body class="cuerpo_sucesion">
+
+
+    <audio id="miAudio">
+        <source src="./Sonidos/niños_felices.MP3" type="audio/mpeg">
+    </audio>
+    
+    <div class="controles">
+        <a href="NivSuc.html">
+            <img src="./IMG/Botones/flecha2.png" alt="Regresar" class="back-button">
+        </a> 
+        <div class="controles2">
+            <button id="cambioAudio" class="control_sound" onclick="cambioAudio()">🔇</button>
+            <button class="control_sound" onclick="detener()">⏹</button>
+        </div>
+    </div>
+
+    <section class="section5">
+     <div class="container6">
+        <h1 id="level-title"></h1>
+        <p style="text-align: right;"> <span id="contador-intentos">0</span> </p>
+
+        <div class="sequence" id="sequence"></div>
+        <p id="question">¿Qué número sigue?</p>
+        <div class="espaciado2"></div>
+        <div class="options">
+            <button class="option" onclick="checkAnswer(0,event)"></button>
+            <button class="option" onclick="checkAnswer(1,event)"></button>
+            <button class="option" onclick="checkAnswer(2,event)"></button>
+        </div>
+     </div>
+
+            <div id="mensaje-flotante"></div>
+
+    </section>
+
+        <div class="window-notice" id="window-notice" style="display: none;">
+            <div class="content7 rotaciones">
+                <div class="content-text">
+                    <h1>¡Felicidades!</h1>
+                    <p id="feedback"></p>
+                    <img src="./IMG/Botones/boton1.png" id="restart-btn" onclick="restartGame()" alt="Reiniciar">
+                    <img src="./IMG/Botones/boton2.png" id="next-level-btn" onclick="nextLevel()" alt="Siguiente nivel">
+                </div>
+            </div>
+        </div>
+
+        <div class="window-notice" id="window-notice2" style="display: none;">
+            <div class="content7 rotaciones">
+                <div class="content-text">
+                    <h1>¡Demasiados intentos!</h1>
+                    <p id="feedback2"></p>
+                    <img src="./IMG/Botones/boton1.png" id="restart-btn" onclick="restartGame()" alt="Reiniciar">
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+
+    <script src="Audio_Sc.js"> </script>
+    <script src="facil.js"> </script>
+
+</body>
+</html>
+
+

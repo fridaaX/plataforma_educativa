@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecciona un Nivel</title>
+    <link rel="stylesheet" href="estilos.css" >
+
+</head>
+<body class="cuerpo_niveles_Suc">
+
+    <div class="header2">
+        <a href="/index.html">
+            <img src="./IMG/Botones/flecha2.png" alt="Regresar" class="back-button">
+        </a>
+    </div>
+
+    <section class="section4">
+    <div class="container3">
+        <h1 class ="nivel">Muy facil</h1>
+
+        <div class="levels">
+            <button class="level-button" onclick="startGame(1)">Nivel 1</button>
+            <button class="level-button" onclick="startGame(2)">Nivel 2</button>
+            <button class="level-button" onclick="startGame(3)">Nivel 3</button>
+            <button class="level-button" onclick="startGame(4)">Nivel 4</button>
+            <button class="level-button" onclick="startGame(5)">Nivel 5</button>
+            <button class="level-button" onclick="startGame(6)">Nivel 6</button>
+            <button class="level-button" onclick="startGame(7)">Nivel 7</button>
+            <button class="level-button" onclick="startGame(8)">Nivel 8</button>
+            <button class="level-button" onclick="startGame(9)">Nivel 9</button>
+            <button class="level-button" onclick="startGame(10)">Nivel 10</button>
+        </div>
+
+        <h1 class ="nivel">Facil</h1>
+        <div class="levels">
+            <button class="level-button" onclick="startGame1(1)">Nivel 1</button>
+            <button class="level-button" onclick="startGame1(2)">Nivel 2</button>
+            <button class="level-button" onclick="startGame1(3)">Nivel 3</button>
+            <button class="level-button" onclick="startGame1(4)">Nivel 4</button>
+            <button class="level-button" onclick="startGame1(5)">Nivel 5</button>
+            <button class="level-button" onclick="startGame1(6)">Nivel 6</button>
+            <button class="level-button" onclick="startGame1(7)">Nivel 7</button>
+            <button class="level-button" onclick="startGame1(8)">Nivel 8</button>
+            <button class="level-button" onclick="startGame1(9)">Nivel 9</button>
+            <button class="level-button" onclick="startGame1(10)">Nivel 10</button>
+        </div>
+
+        <h1 class ="nivel">Normal</h1>
+        <div class="levels">
+            <button class="level-button" onclick="startGame2(1)">Nivel 1</button>
+            <button class="level-button" onclick="startGame2(2)">Nivel 2</button>
+            <button class="level-button" onclick="startGame2(3)">Nivel 3</button>
+            <button class="level-button" onclick="startGame2(4)">Nivel 4</button>
+            <button class="level-button" onclick="startGame2(5)">Nivel 5</button>
+            <button class="level-button" onclick="startGame2(6)">Nivel 6</button>
+            <button class="level-button" onclick="startGame2(7)">Nivel 7</button>
+            <button class="level-button" onclick="startGame2(8)">Nivel 8</button>
+            <button class="level-button" onclick="startGame2(9)">Nivel 9</button>
+            <button class="level-button" onclick="startGame2(10)">Nivel 10</button>
+        </div>
+    </div>
+    </section>
+
+    <script>
+        function startGame(nivel) {
+            window.location.href = `Sucesion.html?nivel=${nivel}`;
+        }
+
+        function startGame1(nivel) {
+            window.location.href = `facil.html?nivel=${nivel}`;
+        }
+
+        function startGame2(nivel) {
+            window.location.href = `Normal.html?nivel=${nivel}`;
+        }
+    </script>
+</body>
+</html>

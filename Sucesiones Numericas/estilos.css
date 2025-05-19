@@ -1,0 +1,846 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&family=Fredoka+One&family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+*{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none; 
+}
+
+body {
+	font-family: "Josefin Sans", sans-serif;
+
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+p{
+	font-size: 16px;
+	color: black;
+	margin: 25px 0 45px 0;
+	text-align: justify;
+}
+
+
+/* Primaria - Sucesiones numericas NIVELES HTML*/
+.cuerpo_niveles_Suc{ /*FONDO */
+	        font-family: Arial, sans-serif;
+            text-align: center;
+
+            background-image: url('./IMG/Fondos/13569398_7.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+}
+
+.cuerpo_niveles_Pat{
+				font-family: Arial, sans-serif;
+			text-align: center;
+
+			background-image: url('./IMG/Fondos/1569.jpg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+}
+
+.header2 {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 10px;
+}
+
+.back-button {
+	width: 120px;
+	height: 60px;
+	cursor: pointer;
+}
+.container3 {
+	max-width: 600px;
+	margin: auto;
+	padding: 20px;
+}
+.levels {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	margin-top: 30px;
+}
+
+
+.level-button {
+	padding: 10px 20px; 
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	border-radius: 8px; 
+	cursor: pointer;
+	background: linear-gradient(45deg, #1662d3, #6ddbfc, #c44ffa, #eb547a); 
+	background-size: 200% 200%;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease-in-out;
+	box-shadow: 0 4px 10px rgba(255, 182, 193, 0.5); 
+}
+
+/* Efecto al pasar el mouse */
+.level-button:hover {
+	transform: scale(1.1);
+	background-position: 100% 100%;
+	box-shadow: 0 6px 14px rgba(189, 69, 125, 0.8); 
+}
+
+/* Efecto al hacer clic */
+.level-button:active {
+	transform: scale(0.98);
+	box-shadow: 0 2px 6px rgba(255, 182, 193, 0.6);
+}
+
+.nivel {
+    font-family: 'Arial', sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(to right, #222222, #d15710);
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	margin-top: 20px;
+}
+
+
+/*Prueba de div INICIO */
+.section4 {
+	margin: 65px auto;
+	padding: 30px;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	width: 80%;
+}
+
+
+/* SUCESION ---> Muy facil */
+.cuerpo_sucesion {
+	font-family: Arial, sans-serif;
+	text-align: center;
+
+	background-image: url('./IMG/Fondos/3.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.container6 {
+	max-width: 600px;
+	margin: auto;
+}
+
+.espaciado {
+	margin-top: 80px;
+}
+.espaciado2 {
+	margin-top: 40px;
+}
+.sequence {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	margin-top: 20px;
+}
+img {
+	width: 105px;
+	height: auto;
+}
+
+
+@keyframes sacudir {
+	0%   { transform: translateX(0); }
+	25%  { transform: translateX(-8px); }
+	50%  { transform: translateX(8px); }
+	75%  { transform: translateX(-8px); }
+	100% { transform: translateX(0); }
+}
+
+.sacudir {
+	animation: sacudir 0.4s;
+}
+  
+
+.options {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+
+.options2 {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+
+
+.option {
+	border-radius: 15px; /* Bordes redondeados */
+	border: none; 
+	padding: 10px;
+	background: rgb(255, 255, 255);
+	transition: transform 0.3s ease-in-out;
+	animation: mover 1s infinite alternate ease-in-out;
+	cursor: pointer;
+}
+.option:hover {
+	transform: scale(1.1);
+	background: rgb(241, 251, 255);
+	box-shadow: 0 5px 15px rgba(171, 58, 206, 0.87);
+}
+
+#contador-intentos{
+	color: red;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding: 4px 8px;
+	background-color: #ffe5e5;
+	border-radius: 5px;
+}
+
+#contador-intentos::before { 
+	content: "Intentos: ";
+	font-weight: bold;
+	color: black;
+  }
+
+#contador-intentos::after {
+	content: "/2" ;
+	font-weight: bold;
+	color: black;
+}
+
+/* Imagenes de las secuencias */
+
+@keyframes rotar {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+
+#sequence img {
+	width: 125px; 
+    height: auto;  
+
+}
+
+#sequence img:hover {
+    transform: translateY(-20px);
+}
+
+
+#mensaje-flotante {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 12px 20px;
+	border-radius: 10px;
+	font-size: 1.8em;
+	z-index: 9999;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#feedback, #feedback2 {
+	text-align: center;
+}
+
+
+#restart {
+	display: none;
+	margin-top: 20px;
+	padding: 10px;
+	background: red; 
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+/* Botones de sonido */
+.controles {
+	display: flex;
+	gap: 10px;
+	position: fixed;
+}
+
+.controles2 {
+	position: fixed;
+	right: 20px;         
+	display: flex;       /* Hace que los botones estén en fila */
+	gap: 10px;           /* Espacio entre los botones */
+	z-index: 1000;
+}
+
+.control_sound {
+	font-size: 23px;
+	padding: 10px;
+	border: none;
+	background: orange;
+	color: white;
+	height: 48px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+.control_sound:hover {
+	background: darkorange;
+}
+
+
+@keyframes rotarUnaVez {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+  
+@keyframes latido {
+	0%, 100% { transform: scale(1); }
+	50% { transform: scale(0.9); }
+}
+
+/*ventana emergente */
+.window-notice, .window-notice2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(255, 236, 255);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(33, 41, 52, .75);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	justify-content: center;
+	width: 430px;  
+    height: 340px; 
+}
+
+.rotaciones {
+	/*ROTACIONES */
+	animation: rotarUnaVez 1s forwards, latido 1s 1s infinite;
+}
+
+.content7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	text-align: center;
+}
+
+.content-text img {
+    width: 100px;
+    margin: 10px;
+    cursor: pointer;
+	margin-right: 44px;
+}
+
+/*Cambiamos el nombre options-container aqui y en los js de las ventanas emergentes */
+#options-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+/* NivPatron  -----  SUCESION DE IMAGENES y FORMAS ---> Patron_FT */
+
+.level-button1 {
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	background: linear-gradient(45deg, #d316c3, #cf6dfc, #f36d14, #eb547a);
+	background-size: 200% 200%;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease-in-out;
+	box-shadow: 0 4px 10px rgba(255, 182, 193, 0.5); 
+}
+
+.level-button1:hover {
+	transform: scale(1.1);
+	background-position: 100% 100%;
+	box-shadow: 0 6px 14px rgba(189, 69, 125, 0.8);
+}
+
+/* Efecto al hacer clic */
+.level-button1:active {
+	transform: scale(0.98);
+	box-shadow: 0 2px 6px rgba(255, 182, 193, 0.6);
+}
+
+
+/* SUCESION DE IMAGENES y FORMAS ---> Patron_FT */
+.cuerpo_sucesion_Pat {
+	font-family: Arial, sans-serif;
+	text-align: center;
+
+	background-image: url('./IMG/Fondos/1569.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.section5 { /*CONTENEDOR */
+	margin: 20px auto;
+	padding: 65px;
+	background: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+	width: 60%;
+}
+
+.section7 { /*CONTENEDOR */
+	margin: 20px auto;
+	padding: 75px;
+	background: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+	width: 78%;
+}
+
+/* TITULO */ 
+@keyframes cambioColor {
+    0% { color: #2d4af1; }
+    50% { color: #ee2cee; }
+    100% { color: #ff0022; }
+}
+
+#level-title {
+    font-size: 44px;
+    font-weight: bold;
+    text-align: center;
+    animation: cambioColor 3s infinite;
+}
+
+/*IMAGENES DE SECUENCIAS */
+
+#game-container img {
+    transition: transform 0.3s ease-in-out;
+    height: auto;
+}
+
+#game-container img.vertical {
+    width: 86px; /* Ancho fijo para verticales */
+}
+
+#game-container img.horizontal {
+    width: 152px; /* Más grande para horizontales */
+}
+
+#game-container img.vertical2 {
+    width: 102px; 
+}
+
+#game-container img.horizontal2 {
+    width: 132px;
+}
+
+
+#game-container img:hover {
+    transform: translateY(-20px);
+}
+
+/* TEXTO DE PREGUNTA */
+
+#question {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+
+
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #222; 
+    width: 0;
+	animation: escribir 3s steps(30) forwards;
+}
+
+@keyframes escribir { /*EFECTO MAQUINA DE ESCRIBIR */
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/*BOTONES DE RESPUESTAS*/
+@keyframes mover {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); } /* Se mueve hacia arriba */
+    100% { transform: translateY(0px); }
+}
+
+#options-container2 img {
+    width: 110px; 
+    height: auto; 
+	border-radius: 15px; 
+	animation: mover 1s infinite alternate ease-in-out;
+	cursor: pointer; 
+	background-color: white;
+}
+
+#options-container2 img.vertical {
+	width: 75px; /* Ancho fijo para verticales */
+
+}
+
+#options-container2 img.horizontal {
+	width: 123px; /* Más grande para horizontales */
+}
+
+
+#options-container2 img.vertical2 {
+    width: 102px; 
+}
+
+#options-container2 img.horizontal2 {
+    width: 132px;
+}
+
+#options-container2 {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#options-container2 img:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 5px 15px rgba(255, 35, 189, 0.87); 
+}
+
+#options-container2 img:active {
+    transform: scale(0.9); 
+}
+
+/* --- DISEÑO RESPONSIVO PARA TABLETS --- */
+@media (max-width: 1024px) {
+    .container,   .section4  {
+        width: 90%;
+        padding: 15px;
+    }
+
+	.container3,.section5, .section7, .container6  {
+        width: 92%;
+        padding: 15px;
+		padding-top: 60px;
+    }
+
+	.controles {
+        position: absolute; 
+    	top: 5px;
+    	left: 0;
+    	right: 0;
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    	padding: 0 3px;
+    	z-index: 1000;
+    }
+
+    .controles2 {
+        display: flex;
+    	gap: 8px;
+		position: absolute;
+    }
+
+    .sequence{
+		display: flex;
+    	flex-wrap: wrap;
+    	justify-content: center;
+    	gap: 10px;
+    	padding: 10px;
+    }
+
+	.options {
+        display: flex;
+		flex-direction: row;
+    	flex-wrap: wrap;
+    	justify-content: center;
+    	gap: 10px;
+    	padding: 10px;
+    }
+
+	.levels {
+    	display: flex;
+    	flex-wrap: wrap;
+    	justify-content: center;
+    	gap: 15px;
+    }
+
+    .level-button, .level-button1 {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .control_sound {
+        font-size: 20px;
+        height: 44px;
+    }
+
+    #sequence img {
+        width: 100px;
+    }
+
+
+    /*Secuencia de patrones */
+	#game-container {
+  		display: flex;
+  		flex-wrap: nowrap;
+  		justify-content: center;
+  		gap: 8px; /* Espaciado entre imágenes */
+	}
+
+
+	#game-container img {
+		width: 14%;
+    	
+	}
+
+	#game-container img.vertical {
+    	width: 15%; /* Ancho fijo para verticales */
+	}
+
+	#game-container img.horizontal {
+		width: 21%; /* Más grande para horizontales */
+	}
+
+
+	#game-container img.vertical2 {
+    	width: 14%; /* Ancho fijo para verticales */
+	}
+
+	#game-container img.horizontal2 {
+		width: 19%; /* Más grande para horizontales */
+	}
+
+
+	/*Ajustamos el tamaño de las respuestas */
+    #options-container2 {
+		display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px;
+        border: none; 
+    }
+
+	#options-container2 img {
+		width: 45%;
+  		flex-wrap: wrap;	
+        border: none;
+        cursor: pointer;
+        height: auto;
+	}
+
+	#options-container2 img.vertical {
+    	width: 70%; 
+	}
+
+	#options-container2 img.horizontal {
+    	width: 85%;
+	}
+
+	#options-container2 img.vertical2 {
+    	width: 100%; 
+	}
+
+	#options-container2 img.horizontal2 {
+    	width: 100%;
+	}
+
+
+	.cuerpo_sucesion, .cuerpo_sucesion_Pat {
+    	background-size: cover;    
+    	background-position: center;   
+    	background-repeat: no-repeat;  
+    	width: 100vw; 
+		height: 100vh;	
+	}
+
+	.window-notice, .window-notice2 {
+        position: absolute;
+    	top: 45%;
+    	transform: translateY(-50%);
+		left: 0;
+    	right: 0;
+		margin: 0 auto;
+		width: 93%;
+        padding: 20px 10px;
+        font-size: 25px;
+    }
+}
+
+
+/* --- DISEÑO RESPONSIVO PARA CELULARES --- */
+@media (max-width: 600px) {
+    .header2 {
+		position: absolute;
+		top: 0;
+    	left: 0;
+		z-index: 1000;
+		padding: 10px;
+
+    }
+
+	.cuerpo_sucesion, .cuerpo_sucesion_Pat {
+
+    	background-size: cover;       
+    	background-position: center;  
+    	background-repeat: no-repeat;  
+    	height: 100vh;                 
+	}
+
+    .back-button {
+        width: 100px;
+        height: 55px;
+    }
+
+    .nivel {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 20px 0 30px 0;
+    }
+
+    .level-button, .level-button1 {
+        width: calc(30% - 20px); /* Dos por fila en móviles */
+        font-size: 14px;
+        padding: 8px;
+    }
+
+	#level-title {
+		font-size: 30px;
+	}
+
+    .sequence img, #sequence img {
+        width: 22%;
+    }
+
+    .options img,  #options img {
+		width: 75px;
+
+    }
+
+	.option {
+        width: 30%;
+		border: none;
+    }
+
+    .control_sound {
+        padding: 8px;
+        font-size: 18px;
+    }
+
+	.controles {
+        position: absolute;
+    	top: 5px;
+    	left: 0;
+    	right: 0;
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    	padding: 0 3px;
+    	z-index: 1000;
+    }
+
+    .controles2 {
+        display: flex;
+    	gap: 8px;
+		position: absolute;
+    }
+
+	/*Secuencia de patrones */
+	#game-container {
+  		display: flex;
+  		flex-wrap: nowrap;
+  		justify-content: center;
+  		gap: 10px; /* Espaciado entre imágenes */
+	}
+
+
+	#game-container img {
+    	width: 19%;	
+	}
+
+	#game-container img.vertical {
+    	width: 43px; /* Ancho fijo para verticales */
+	}
+
+	#game-container img.horizontal {
+		width: 19%; /* Más grande para horizontales */
+	}
+
+	
+
+	/*Ajustamos el tamaño de las respues */
+    #options-container2 {
+		display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px;
+        border: none; 
+    }
+
+	#options-container2 img {
+		width: 100%;
+  		flex-wrap: wrap;	
+        border: none;
+        cursor: pointer;
+        height: auto;
+		background-color: white;
+	}
+
+	#options-container2 img.vertical {
+    	width: 70%; 
+	}
+
+	#options-container2 img.horizontal {
+    	width: 85%;
+	}
+
+	#options-container2 img.vertical2 {
+    	width: 100%; 
+	}
+
+	#options-container2 img.horizontal2 {
+    	width: 100%;
+	}
+
+    #mensaje-flotante {
+        font-size: 1.2em;
+        padding: 10px 15px;
+    }
+
+    .content-text img {
+        width: 80px;
+        margin-right: 0;
+    }
+
+	.window-notice, .window-notice2 {
+        position: absolute;
+    	top: 45%;
+    	transform: translateY(-90%);
+		left: 0;
+    	right: 0;
+		margin: 0 auto;
+
+		width: 93%;
+        padding: 20px 10px;
+        font-size: 14px;
+    }
+}
