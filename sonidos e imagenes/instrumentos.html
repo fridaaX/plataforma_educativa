@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Sonidos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>    
+    <div class="header2">
+        <a href="niveles.html">
+            <img src="./imagenes/flecha2.png" alt="Regresar" class="back-button">
+        </a>
+    </div>
+
+    <section class="section7">
+        <div id="juego">
+            <h2 id="nivel-texto">Sonidos de Instrumentos</h2>
+            <div id="imagenes" class="contenedor"></div>
+        </div>
+
+        <div id="overlay"></div>
+        <div id="mensaje" class="mensaje"></div>
+
+        <!-- Contenedor de la bocina -->
+        <div id="bocina-container">
+            <img id="bocina" src="imagenes/bocina.jpg" alt="Reproducir sonido">
+        </div>
+
+        <!-- Botones de control -->
+        <div id="controles" style="display: none;">
+            <button id="btn-repetir">Repetir Juego</button>
+            <button id="btn-nivel">Cambiar Nivel</button>
+            <button id="btn-inicio">Regresar al Inicio</button>
+        </div>
+    </section>
+
+    <script src="instrumentos.js"></script>
+</body>
+</html>
