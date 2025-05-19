@@ -112,4 +112,20 @@ jQuery(function() {
     });
   });
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // Opcional: si no quieres que se repita la animación
+        }
+      });
+    }, {
+      threshold: 0.1 // Se activa cuando el 10% del elemento es visible
+    });
+
+    document.querySelectorAll(".fade-in-up").forEach(el => {
+      observer.observe(el);
+    });
+  });
 
