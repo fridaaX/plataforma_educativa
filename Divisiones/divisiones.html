@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juego de División</title>
+  <link rel="stylesheet" href="style_divisiones.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;1,700&family=Fugaz+One&family=Poppins:ital,wght@0,400;0,500;0,600;1,400&family=Quicksand:wght@700&display=swap" rel="stylesheet" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="header2">
+        <a href="/index.html" data-page-no="2">
+            <img src="./imagenes/flecha2.png" alt="Regresar" class="back-button">
+        </a>
+    </div>
+
+  <h1>REPARTAMOS LOS DULCES </h1>
+  <p id="instruccion"></p>
+
+  <div class="contenedor-juego">
+    <div class="contenedor-seccion dulces-seccion">
+      <div class="dulces" id="dulces"></div>
+    </div>
+    <div class="contenedor-seccion cajas-seccion">
+      <div class="cajas" id="cajas"></div>
+    </div>
+  </div>
+
+  <div>
+  <button class="siguiente" onclick="nuevaDivision()">Siguiente</button>
+  <button class="respuesta" onclick="abrirModal()">Respuesta</button>
+  </div>
+
+  <div id="resultado" class="modal hidden">
+    <div class="modal-content">
+    <button onclick="cerrarModal()" class="btn-cerrar-modal">&times;</button>
+        <div class="grupo">
+          <label for="respuesta">¿Cuántos dulces hay en cada caja?</label><br />
+          <input type="number" id="respuesta" />
+        </div>
+        
+        <div class="grupo" id="ecuacion">
+          Así que <span id="m"></span> ÷ <span id="n"></span> = 
+          <input type="number" id="respuestaEcuacion" />
+        </div>
+      
+        <button class="btn-verificar" onclick="verificarResultado()">Verificar</button>
+        <p id="mensaje"></p>
+        <button class="btn-Siguiente" onclick="nuevaDivision()">Siguiente</button>
+    </div> 
+  </div>
+  
+  <script src="script_divisiones.js"></script>
+</body>
+</html>
