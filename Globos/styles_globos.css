@@ -1,0 +1,243 @@
+body {
+    background-image: url('./IMG/Globos/NUBES.jpeg');
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #009400;
+    font-size: 30px;
+    background-size: cover;      
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+button {
+    padding: 20px 30px; 
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	border-radius: 8px; 
+	cursor: pointer;
+	background: linear-gradient(45deg, #009400, #8ab800, #e8e03d, #ffffa1);
+	background-size: 200% 200%;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease-in-out;
+	box-shadow: 0 4px 10px rgba(185, 255, 182, 0.5); 
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#zona-juego {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.globo {
+    position: absolute;
+    bottom: 0;
+    width: 90px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    background-size: contain;  
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+/* Efecto al pasar el mouse */
+.globo:hover {
+    transform: scale(1.2); 
+}
+
+
+.mensaje {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.mensaje button {
+    background-color: #007bff;
+    padding: 10px 15px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.mensaje-error {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#mensaje-letra {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: rgb(2, 2, 2);
+    font-size: 22px;
+    border-radius: 8px;
+}
+
+.header2 {
+	position: absolute; 
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: flex-start; 
+	justify-content: flex-start;
+	padding: 10px;
+}
+
+
+/*.back-button {
+	 position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 120px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 1000; 
+}*/
+
+.img-intro {
+    width: 100vw;                
+    max-width: 900px;           
+    height: auto;
+    cursor: pointer;
+    border: 5px solid transparent;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.section7 {
+    margin: 20px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.699);
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.795);
+    width: 90%;            
+    max-width: 900px;    
+    box-sizing: border-box;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.contenedor-pagina {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh;          
+  /*  background-color: #f0f0f0;  Opcional: color de fondo */
+}
+
+
+/* Estilo para el botón de regresar */
+.back-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* Barra del abecedario */
+#barra-abecedario {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 40px 10px 60px; /* espacio a la izquierda para el botón */
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.letra-abecedario {
+    color: red;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: default;
+    min-width: 20px;
+    text-align: center;
+}
+
+.letra-abecedario.usada {
+    color: gray;
+}
+
+.letra-abecedario.actual {
+    color: green;
+    transform: scale(1.2);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    #barra-abecedario {
+        font-size: 16px;
+        gap: 6px;
+        padding: 8px 20px 8px 60px; /* mantener espacio izquierdo para botón */
+    }
+
+    .letra-abecedario {
+        min-width: 16px;
+    }
+
+    .back-button {
+        width: 32px;
+        height: 32px;
+    }
+}
+
