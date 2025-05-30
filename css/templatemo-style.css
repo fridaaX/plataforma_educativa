@@ -26,10 +26,9 @@ p {
 }
 
 .recuro-info {
-    line-height: 1.5;
-    font-weight: bold; 
-    font-size: 118%;
-    max-width: 82%; 
+    line-height: 1.5; 
+    font-size: 108%;
+    max-width: 84%; 
     margin: 0 auto; 
     text-align: center;
     margin-bottom: 20px;
