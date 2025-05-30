@@ -538,9 +538,18 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
 	position: relative;
 }
 
+
+
 .recurso-content2 {
 	text-align: center;
-	background-color: rgb(252, 192, 247); 
+/*	background: linear-gradient(45deg, #0011ff, #0059ff, #0011ff);*/
+	background: linear-gradient(45deg, #fa3d9c, #ffb6f5, #ff4656);
+    background-size: 200% 200%;
+    animation: wave 5s infinite ease-in-out;
+    padding: 20px;
+    border-radius: 10px; 
+
+
 	max-width: 1220px; /* Limita el ancho máximo.*/
 	min-height: 620px; /* Define una altura mínima.*/
 }
