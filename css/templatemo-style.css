@@ -22,7 +22,11 @@ a:hover {
 }
 
 p {
-    line-height: 1.7;
+    line-height: 1.6;
+}
+
+.recuro-info {
+    line-height: 1.6;
 }
 
 h2 {
