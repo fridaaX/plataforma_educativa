@@ -471,8 +471,9 @@ max-width: 100%;
 
     .intro-img-1 {
         margin-right: 4%;
-        margin-bottom: 0;
-        width: 48%
+        width: 100%;      /* Usa todo el ancho del contenedor */
+  	margin: 0 auto;   /* Centrada si el contenedor lo permite */
+  	display: block;
     }
 
     .intro-img-2 {
