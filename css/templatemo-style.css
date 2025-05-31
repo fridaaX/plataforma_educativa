@@ -467,6 +467,7 @@ max-width: 100%;
 
     .intro-container {
         flex-direction: column;
+	    max-width: 90%;
     }
 
     .intro-img-1 {
