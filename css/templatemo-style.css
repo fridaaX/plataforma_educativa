@@ -36,6 +36,17 @@ p {
 	color: #fcfcfc;
 }
 
+
+.recuro-info2 {
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 94%;
+    max-width: 77%; 
+    margin: 0 auto; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 h2 {
     font-size: 3rem;
 }
