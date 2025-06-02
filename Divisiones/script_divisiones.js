@@ -1,28 +1,29 @@
-  let dividendo = 0;
-  let divisor = 0;
-  let totalDulces = 0;
-  let imagenDulceSeleccionada = "";
-  let maxDulcesPorCaja = 0;
+let dividendo = 0;
+let divisor = 0;
+let totalDulces = 0;
+let imagenDulceSeleccionada = "";
+let maxDulcesPorCaja = 0;
 
 const dulcesDiv = document.getElementById("dulces");
 const cajasDiv = document.getElementById("cajas");
 const resultadoDiv = document.getElementById("resultado");
 const mensajeP = document.getElementById("mensaje");
+const btnSiguienteModal = document.getElementById("btnSiguienteModal");
 
 function generarDivision() {
-  do{
+  do {
     dividendo = Math.floor(Math.random() * 25) + 6;
     divisor = Math.floor(Math.random() * 5) + 2;
-    } 
-  while (dividendo % divisor !== 0);
-  totalDulces = dividendo;
+  } while (dividendo % divisor !== 0);
 
+  totalDulces = dividendo;
   maxDulcesPorCaja = dividendo / divisor;
 
   imagenDulceSeleccionada = imagenesDulces[Math.floor(Math.random() * imagenesDulces.length)];
 
-  //Insertar los valores en la intrucción y la respuesta
-  document.getElementById("instruccion").textContent = `Tenemos ${dividendo} dulces para repartirlos en ${divisor} cajas. `+ `Arrastra los dulces a las cajas para que cada una tenga la misma contidad dentro.`;
+  document.getElementById("instruccion").textContent =
+    `Tenemos ${dividendo} dulces para repartirlos en ${divisor} cajas. ` +
+    `Arrastra los dulces a las cajas para que cada una tenga la misma cantidad dentro.`;
 
   document.getElementById("m").textContent = dividendo;
   document.getElementById("n").textContent = divisor;
@@ -31,7 +32,14 @@ function generarDivision() {
   crearCajas();
 }
 
-const imagenesDulces = ["imagenes/dulce1.png", "imagenes/dulce2.png", "imagenes/dulce1.png", "imagenes/dulce1.png", "imagenes/dulce1.png"];
+const imagenesDulces = [
+  "imagenes/dulce1.png",
+  "imagenes/dulce2.png",
+  "imagenes/dulce1.png",
+  "imagenes/dulce1.png",
+  "imagenes/dulce1.png"
+];
+
 function crearDulces() {
   const angulo = Math.floor(Math.random() * 20 - 10);
 
@@ -52,9 +60,11 @@ function crearDulces() {
       e.dataTransfer.setData("text/plain", "dulce");
       e.target.classList.add("dragging");
     });
+
     dulce.addEventListener("dragend", (e) => {
       e.target.classList.remove("dragging");
     });
+
     dulcesDiv.appendChild(dulce);
   }
 }
@@ -65,75 +75,93 @@ function crearCajas() {
     caja.classList.add("caja");
 
     caja.addEventListener("dragover", (e) => e.preventDefault());
+
     caja.addEventListener("drop", (e) => {
       const dulcesEnCaja = e.currentTarget.querySelectorAll('.dulce').length;
 
-      if (dulcesEnCaja >= maxDulcesPorCaja) {
-        return;
-      }
+      if (dulcesEnCaja >= maxDulcesPorCaja) return;
 
       const dragging = document.querySelector(".dragging");
       if (dragging) {
         e.currentTarget.appendChild(dragging);
 
-        let dulcesColocados = 0;
-        for (let j = 0; j < cajasDiv.children.length; j++) {
-          dulcesColocados += cajasDiv.children[j].querySelectorAll('.dulce').length;
-        }
-
+        let dulcesColocados = contarDulcesEnCajas();
         if (dulcesColocados === dividendo) {
-          resultadoDiv.classList.remove("hidden");
+          // resultadoDiv.classList.remove("hidden"); // Ya no se abre automáticamente
         }
       }
     });
+
     cajasDiv.appendChild(caja);
   }
 }
 
-function verificarResultado() {
-  console.log("Verificando...");
+function contarDulcesEnCajas() {
+  let dulcesColocados = 0;
+  for (let j = 0; j < cajasDiv.children.length; j++) {
+    dulcesColocados += cajasDiv.children[j].querySelectorAll('.dulce').length;
+  }
+  return dulcesColocados;
+}
 
+function verificarResultado() {
+  mensajeP.textContent = ""; // Limpiar mensaje anterior
   const valor1 = parseInt(document.getElementById("respuesta").value);
   const valor2 = parseInt(document.getElementById("respuestaEcuacion").value);
 
-  let esCorrecto1 = true;
-  let esCorrecto2 = true;
+  let dulcesColocados = contarDulcesEnCajas();
 
-  for (let i = 0; i < cajasDiv.children.length; i++){
+  if (dulcesColocados < dividendo) {
+    mensajeP.textContent = "Aún no has colocado todos los dulces en las cajas.";
+    mensajeP.style.color = "orange";
+    btnSiguienteModal.classList.add("hidden");
+    return;
+  }
+
+  // Verificar distribución correcta
+  let esCorrecto1 = true;
+  for (let i = 0; i < cajasDiv.children.length; i++) {
     const cantidadEnCaja = cajasDiv.children[i].childElementCount;
     if (cantidadEnCaja !== maxDulcesPorCaja) {
       esCorrecto1 = false;
     }
   }
 
-  if (valor2 !== maxDulcesPorCaja){
-    esCorrecto2 = false;
-  }
+  const esCorrecto2 = valor2 === maxDulcesPorCaja;
 
   if (esCorrecto1 && esCorrecto2) {
     mensajeP.textContent = "¡Correcto!";
     mensajeP.style.color = "green";
+    btnSiguienteModal.classList.remove("hidden");
   } else {
     mensajeP.textContent = "Intenta de nuevo";
     mensajeP.style.color = "red";
+    btnSiguienteModal.classList.add("hidden");
   }
 }
 
-function nuevaDivision(){
-  //Limpria dulces y cajas anteriores
+function nuevaDivision() {
   dulcesDiv.innerHTML = "";
   cajasDiv.innerHTML = "";
-  //Quita el resultado y mensaje
   resultadoDiv.classList.add("hidden");
   mensajeP.textContent = "";
-  //Limpia la entrada de respuesta
   document.getElementById("respuesta").value = "";
   document.getElementById("respuestaEcuacion").value = "";
+  btnSiguienteModal.classList.add("hidden");
 
   generarDivision();
 }
 
 function abrirModal() {
+  const dulcesColocados = contarDulcesEnCajas();
+
+  mensajeP.textContent = ""; // Limpiar mensaje anterior al abrir
+
+  if (dulcesColocados < dividendo) {
+    mensajeP.textContent = "Aún no has colocado todos los dulces en las cajas.";
+    mensajeP.style.color = "orange";
+  }
+
   resultadoDiv.classList.remove("hidden");
 }
 
@@ -143,3 +171,4 @@ function cerrarModal() {
 
 window.nuevaDivision = nuevaDivision;
 generarDivision();
+
