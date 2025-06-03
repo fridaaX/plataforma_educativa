@@ -35,9 +35,9 @@ function generarDivision() {
 const imagenesDulces = [
   "imagenes/dulce1.png",
   "imagenes/dulce2.png",
-  "imagenes/dulce1.png",
-  "imagenes/dulce1.png",
-  "imagenes/dulce1.png"
+  "imagenes/dulce3.png",
+  "imagenes/dulce4.png",
+  "imagenes/dulce5.png"
 ];
 
 function crearDulces() {
