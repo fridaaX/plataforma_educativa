@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Sucesiones Numéricas</title>
-    <link rel="icon" type="image/png" href="/img/favicon.png">
     <link rel="stylesheet" href="estilos.css" >
 
 </head>
@@ -30,10 +29,10 @@
         <h1 id="level-title"></h1>
         <p style="text-align: right;"> <span id="contador-intentos">0</span> </p>
         
-        <div class="sequence" id="sequence"></div>
+        <div class="secuencia" id="secuencia"></div>
         <p id="question">¿Qué número sigue?</p>
         <div class="espaciado2"></div>
-        <div class="options">
+        <div class="opciones">
             <button class="option" onclick="checkAnswer(0, event)"></button>
             <button class="option" onclick="checkAnswer(1, event)"></button>
             <button class="option" onclick="checkAnswer(2, event)"></button>
@@ -49,7 +48,7 @@
                 <div class="content-text">
                     <h1>¡Felicidades!</h1>
                     <p id="feedback"></p>
-                    <img src="./IMG/Botones/boton1.png" id="restart-btn" onclick="restartGame()" alt="Reiniciar">
+                    <img src="./IMG/Botones/boton1.png" id="restart-btn" onclick="reiniciar()" alt="Reiniciar">
                     <img src="./IMG/Botones/boton2.png" id="next-level-btn" onclick="nextLevel()" alt="Siguiente nivel">
                 </div>
             </div>
@@ -60,7 +59,7 @@
                 <div class="content-text">
                     <h1>¡Demasiados intentos!</h1>
                     <p id="feedback2"></p>
-                    <img src="./IMG/Botones/boton1.png" id="restart-btn" onclick="restartGame()" alt="Reiniciar">
+                    <img src="./IMG/Botones/boton1.png" id="restart-btn" onclick="reiniciar()" alt="Reiniciar">
                 </div>
             </div>
         </div>

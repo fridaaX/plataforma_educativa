@@ -1,128 +1,127 @@
-let currentLevel = new URLSearchParams(window.location.search).get('nivel') || 1;
+let nivelActual = new URLSearchParams(window.location.search).get('nivel') || 1;
 let intentos = 0;
 const maxintentos = 2;
-let sequence = [];
-let options = [];
+let secuencia = [];
+let opciones = [];
 let correctIndex = 0;
-const totalLevels = 10;
+const NumNiveles = 10;
 
-function generateSequence(level) {
+function secuenciaNueva(level) {
     const min = 9;
     const max = 40;
-    let start, step, correctAnswer;
-    sequence = [];
+    let valorIn, incremento, respCorrect;
+    secuencia = [];
 
     switch (parseInt(level)) {
         case 1:
-            // +6 (e.g., 3, 4, 5, ?)
-            step = 6;
-            start = getValidStart(min, max, step, 3);
+            // +6
+            incremento = 6;
+            valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
         case 2:
-            // Descendente -4 (e.g., 10, 9, 8, ?)
-            step = -4;
-            start = getValidStart(min + 3, max, step, 3);
+            // Descendente -4
+            incremento = -4;
+            valorIn = getValidvalorIn(min + 3, max, incremento, 3);
             break;
         case 3:
-            step = 4;
-            start = getValidOddStart(min, max, step, 3);
-            sequence = [start, start + step, start + step * 2];
-            correctAnswer = start + step * 3;
+            incremento = 4;
+            valorIn = getValidOddvalorIn(min, max, incremento, 3);
+            secuencia = [valorIn, valorIn + incremento, valorIn + incremento * 2];
+            respCorrect = valorIn + incremento * 3;
             break;
         case 4:
             // +3 (e.g., 3, 6, 9, ?)
-            step = 3;
-            start = getValidStart(min, max, step, 3);
+            incremento = 3;
+            valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
         case 5:
             // Restar de 2 en 2s
-            step = -2;
-            start = getValidStart(7, max, Math.abs(step), 3); 
-            sequence = [start, start + step, start + 2 * step];
-            correctAnswer = start + 3 * step;
+            incremento = -2;
+            valorIn = getValidvalorIn(7, max, Math.abs(incremento), 3); 
+            secuencia = [valorIn, valorIn + incremento, valorIn + 2 * incremento];
+            respCorrect = valorIn + 3 * incremento;
             break;
         case 6:
             //Alterna entre +1 y -1
-            start = getValidStart(min + 1, max - 1, 1, 1);
-            sequence = [start, start + 1, start]; // +1, -1
-            correctAnswer = start + 1;
+            valorIn = getValidvalorIn(min + 1, max - 1, 1, 1);
+            secuencia = [valorIn, valorIn + 1, valorIn]; // +1, -1
+            respCorrect = valorIn + 1;
             break;
         case 7:
-            // +8 (e.g., 3, 6, 9, ?)
-            step = 8;
-            start = getValidStart(min, max, step, 3);
+            // +7
+            incremento = 7;
+            valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
         case 8:
-            // Alternar 2 y 3
-            start = getValidStart(min, max - 5, 1, 1);
-            sequence = [start, start + 2, start + 5]; // +2, +3
-            correctAnswer = start + 7; // siguiente +2
+            // -5
+            incremento = -5;
+            valorIn = getValidvalorIn(min + 3, max, incremento, 3);
             break;
         case 9:
-            // Alterna +1, +2 (e.g., 2, 3, 5, ?)
-            start = getValidStart(min, max, 1, 0); // No usa step fijo
-            sequence = [start, start + 1, start + 1 + 2, start + 1 + 3];
-            correctAnswer = start + 1 + 2 + 1 + 2;
+            // Alterna +1, +2
+            valorIn = getValidvalorIn(min, max, 1, 0); // No usa incremento fijo
+            secuencia = [valorIn, valorIn + 1, valorIn + 1 + 2, valorIn + 1 + 3];
+            respCorrect = valorIn + 1 + 2 + 1 + 2;
             break;
         case 10:
-            // Alterna +1, +3 (e.g., 2, 3, 5, ?)
-            start = getValidStart(min, max, 1, 0); // No usa step fijo
-            sequence = [start, start + 1, start + 1 + 3, start + 1 + 4];
-            correctAnswer = start + 5 + 3;
+            // Alterna +1, +3 
+            valorIn = getValidvalorIn(min, max, 1, 0); // No usa incremento fijo
+            secuencia = [valorIn, valorIn + 1, valorIn + 1 + 3, valorIn + 1 + 4];
+            respCorrect = valorIn + 5 + 3;
             break;
         default:
             // Por defecto +1
-            step = 1;
-            start = getValidStart(min, max, step, 3);
+            incremento = 1;
+            valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
     }
 
     // Solo si no se llenó la secuencia con un patrón específico arriba
-    if (!sequence.length) {
-        sequence = [start, start + step, start + 2 * step];
-        correctAnswer = start + 3 * step;
+    if (!secuencia.length) {
+        secuencia = [valorIn, valorIn + incremento, valorIn + 2 * incremento];
+        respCorrect = valorIn + 3 * incremento;
     }
 
-    sequence.push("?");
+    secuencia.push("?");
 
     // Opciones con distractores
-    let wrong1 = correctAnswer + Math.floor(Math.random() * 3) + 1;
-    let wrong2 = correctAnswer - Math.floor(Math.random() * 3) - 1;
+    let respErr1 = respCorrect + Math.floor(Math.random() * 3) + 1;
+    let respErr2 = respCorrect - Math.floor(Math.random() * 3) - 1;
 
-    wrong1 = clamp(wrong1, min, max);
-    wrong2 = clamp(wrong2, min, max);
+    respErr1 = clamp(respErr1, min, max);
+    respErr2 = clamp(respErr2, min, max);
 
-    options = [correctAnswer, wrong1, wrong2];
-    options = [...new Set(options)];
+    opciones = [respCorrect, respErr1, respErr2];
+    opciones = [...new Set(opciones)];
 
-    while (options.length < 3) {
+    while (opciones.length < 3) {
         let rand = Math.floor(Math.random() * (max - min + 1)) + min;
-        if (!options.includes(rand)) options.push(rand);
+        if (!opciones.includes(rand)) opciones.push(rand);
     }
 
-    options = options.sort(() => Math.random() - 0.5);
-    correctIndex = options.indexOf(correctAnswer);
+    opciones = opciones.sort(() => Math.random() - 0.5);
+    correctIndex = opciones.indexOf(respCorrect);
 }
 
-function getValidStart(min, max, step, reps) {
-    const maxStart = max - (step * reps);
-    return Math.floor(Math.random() * (maxStart - min + 1)) + min;
+function getValidvalorIn(min, max, incremento, reps) {
+    const maxvalorIn = max - (incremento * reps);
+    return Math.floor(Math.random() * (maxvalorIn - min + 1)) + min;
 }
 
-function getValidEvenStart(min, max, reps) {
-    let start;
+function getValidEvenvalorIn(min, max, reps) {
+    let valorIn;
     do {
-        start = getValidStart(min, max, 2, reps);
-    } while (start % 2 !== 0);
-    return start;
+        valorIn = getValidvalorIn(min, max, 2, reps);
+    } while (valorIn % 2 !== 0);
+    return valorIn;
 }
 
-function getValidOddStart(min, max, reps) {
-    let start;
+function getValidOddvalorIn(min, max, reps) {
+    let valorIn;
     do {
-        start = getValidStart(min, max, 2, reps);
-    } while (start % 2 === 0);
-    return start;
+        valorIn = getValidvalorIn(min, max, 2, reps);
+    } while (valorIn % 2 === 0);
+    return valorIn;
 }
 
 function clamp(val, min, max) {
@@ -130,26 +129,26 @@ function clamp(val, min, max) {
 }
 
 function loadLevel() {
-    document.getElementById('level-title').textContent = `Nivel ${currentLevel}`;
-    generateSequence(currentLevel);
+    document.getElementById('level-title').textContent = `Nivel ${nivelActual}`;
+    secuenciaNueva(nivelActual);
 
-    const sequenceContainer = document.getElementById('sequence');
-    sequenceContainer.innerHTML = '';
-    sequence.forEach(num => {
+    const secuenciaContainer = document.getElementById('secuencia');
+    secuenciaContainer.innerHTML = '';
+    secuencia.forEach(num => {
         const img = document.createElement('img');
         img.src = num === "?" ? "pregunta.png" : `./IMG/Numeros/${num}.png`;
-        sequenceContainer.appendChild(img);
+        secuenciaContainer.appendChild(img);
     });
 
     const buttons = document.querySelectorAll('.option');
-    options.forEach((option, index) => {
+    opciones.forEach((option, index) => {
         buttons[index].innerHTML = `<img src="./IMG/Numeros/${option}.png" alt="Número">`;
     });
 
     document.getElementById('feedback').textContent = '';
     document.getElementById('restart').style.display = 'none';
     document.getElementById('window-notice').style.display = 'none';
-    document.getElementById('options-container').style.display = 'flex';
+    document.getElementById('opciones-container').style.display = 'flex';
 }
 
 function lanzarConfeti() {
@@ -166,7 +165,7 @@ function checkAnswer(selected, event) {
         document.getElementById('feedback').textContent = '¡Correcto!';
         lanzarConfeti();
         document.getElementById('window-notice').style.display = 'flex';
-        document.getElementById('options-container').style.display = 'none';
+        document.getElementById('opciones-container').style.display = 'none';
     } else {
         intentos++;
         document.getElementById('contador-intentos').textContent = intentos; // contabiliza los intentos
@@ -188,7 +187,7 @@ function checkAnswer(selected, event) {
         } else { 
             document.getElementById('feedback2').textContent = '¡Intentalo de nuevo!';
             document.getElementById('window-notice2').style.display = 'flex';
-            document.getElementById('options-container').style.display = 'none';
+            document.getElementById('opciones-container').style.display = 'none';
         }
     }
 }
@@ -203,7 +202,7 @@ function mostrarMensajeFlotante(texto) {
     }, 2000); // desaparece a los 2 segundos
 }
 
-function restartGame() {
+function reiniciar() {
     intentos = 0;
     document.getElementById('contador-intentos').textContent = intentos; // Actualiza el contador a cero
 
@@ -213,15 +212,15 @@ function restartGame() {
 }
 
 function nextLevel() {
-    if (currentLevel < totalLevels) {
-        currentLevel++;
+    if (nivelActual < NumNiveles) {
+        nivelActual++;
         intentos = 0;
         document.getElementById('contador-intentos').textContent = intentos;
         document.getElementById('window-notice').style.display = 'none';
         loadLevel();
     } else {
         document.getElementById('feedback').textContent = '¡Has completado todos los niveles!';
-        document.getElementById('options-container').style.display = 'none'; // Opcional: oculta opciones
+        document.getElementById('opciones-container').style.display = 'none'; // Opcional: oculta opciones
     }
 }
 
