@@ -14,12 +14,10 @@ function secuenciaNueva(level) {
 
     switch (parseInt(level)) {
         case 1:
-            // +6
             incremento = 6;
             valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
         case 2:
-            // Descendente -4
             incremento = -4;
             valorIn = getValidvalorIn(min + 3, max, incremento, 3);
             break;
@@ -30,53 +28,44 @@ function secuenciaNueva(level) {
             respCorrect = valorIn + incremento * 3;
             break;
         case 4:
-            // +3 (e.g., 3, 6, 9, ?)
             incremento = 3;
             valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
         case 5:
-            // Restar de 2 en 2s
             incremento = -2;
             valorIn = getValidvalorIn(7, max, Math.abs(incremento), 3); 
             secuencia = [valorIn, valorIn + incremento, valorIn + 2 * incremento];
             respCorrect = valorIn + 3 * incremento;
             break;
         case 6:
-            //Alterna entre +1 y -1
             valorIn = getValidvalorIn(min + 1, max - 1, 1, 1);
-            secuencia = [valorIn, valorIn + 1, valorIn]; // +1, -1
+            secuencia = [valorIn, valorIn + 1, valorIn];
             respCorrect = valorIn + 1;
             break;
         case 7:
-            // +7
             incremento = 7;
             valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
         case 8:
-            // -5
             incremento = -5;
             valorIn = getValidvalorIn(min + 3, max, incremento, 3);
             break;
         case 9:
-            // Alterna +1, +2
-            valorIn = getValidvalorIn(min, max, 1, 0); // No usa incremento fijo
+            valorIn = getValidvalorIn(min, max, 1, 0);
             secuencia = [valorIn, valorIn + 1, valorIn + 1 + 2, valorIn + 1 + 3];
             respCorrect = valorIn + 1 + 2 + 1 + 2;
             break;
         case 10:
-            // Alterna +1, +3 
-            valorIn = getValidvalorIn(min, max, 1, 0); // No usa incremento fijo
+            valorIn = getValidvalorIn(min, max, 1, 0); 
             secuencia = [valorIn, valorIn + 1, valorIn + 1 + 3, valorIn + 1 + 4];
             respCorrect = valorIn + 5 + 3;
             break;
         default:
-            // Por defecto +1
             incremento = 1;
             valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
     }
 
-    // Solo si no se llenó la secuencia con un patrón específico arriba
     if (!secuencia.length) {
         secuencia = [valorIn, valorIn + incremento, valorIn + 2 * incremento];
         respCorrect = valorIn + 3 * incremento;
@@ -84,7 +73,7 @@ function secuenciaNueva(level) {
 
     secuencia.push("?");
 
-    // Opciones con distractores
+
     let respErr1 = respCorrect + Math.floor(Math.random() * 3) + 1;
     let respErr2 = respCorrect - Math.floor(Math.random() * 3) - 1;
 
@@ -168,14 +157,11 @@ function checkAnswer(selected, event) {
         document.getElementById('opciones-container').style.display = 'none';
     } else {
         intentos++;
-        document.getElementById('contador-intentos').textContent = intentos; // contabiliza los intentos
+        document.getElementById('contador-intentos').textContent = intentos; 
 
-
-        // Aplica sacudida al botón presionado
         const btn = event.target;
         btn.classList.add('sacudir');
 
-        // Elimina la clase después de que termine la animación
         setTimeout(() => {
             btn.classList.remove('sacudir');
         }, 400);
@@ -199,12 +185,12 @@ function mostrarMensajeFlotante(texto) {
 
     setTimeout(() => {
         mensaje.style.display = 'none';
-    }, 2000); // desaparece a los 2 segundos
+    }, 2000);
 }
 
 function reiniciar() {
     intentos = 0;
-    document.getElementById('contador-intentos').textContent = intentos; // Actualiza el contador a cero
+    document.getElementById('contador-intentos').textContent = intentos; 
 
     document.getElementById('window-notice').style.display = 'none';
     document.getElementById('window-notice2').style.display = 'none';
@@ -220,7 +206,7 @@ function nextLevel() {
         loadLevel();
     } else {
         document.getElementById('feedback').textContent = '¡Has completado todos los niveles!';
-        document.getElementById('opciones-container').style.display = 'none'; // Opcional: oculta opciones
+        document.getElementById('opciones-container').style.display = 'none'; 
     }
 }
 
