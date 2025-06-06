@@ -15,7 +15,6 @@ function secuenciaNueva(level) {
 
     switch (parseInt(level)) {
         case 1:
-            // Descendente -3
             incremento = -3;
             valorIn = getValidvalorIn(min + 24, max, Math.abs(incremento), 4); 
             secuencia = [valorIn];
@@ -25,7 +24,7 @@ function secuenciaNueva(level) {
             break;
     
         case 2:
-            const sumaResta = 10; // Total a restar: 1+2+3+4 = 10
+            const sumaResta = 10;
             valorIn = getValidvalorIn(min, max, sumaResta, 1);
             secuencia = [valorIn];
             for (let i = 1; i < 5; i++) {
@@ -34,8 +33,7 @@ function secuenciaNueva(level) {
             break;
     
         case 3:
-            // Multiplicar por 2
-            valorIn = Math.floor(Math.random() * 3) + 1; // 1–3 para que no se pase
+            valorIn = Math.floor(Math.random() * 3) + 1;
             secuencia = [valorIn];
             for (let i = 1; i < 5; i++) {
                 secuencia.push(secuencia[i - 1] * 2);
@@ -46,7 +44,7 @@ function secuenciaNueva(level) {
             incremento = 4;
             do {
                 valorIn = getValidvalorIn(min, max, incremento, 4);
-            } while (valorIn % 2 === 0); // si es par, vuelve a intentarlo
+            } while (valorIn % 2 === 0);
             secuencia = [valorIn];
             for (let i = 1; i < 5; i++) {
                 secuencia.push(valorIn + incremento * i);
@@ -57,7 +55,7 @@ function secuenciaNueva(level) {
             incremento = 2;
             do {
                 valorIn = getValidvalorIn(min + 15, max, incremento, 4);
-            } while (valorIn % 2 === 0); // si es par, vuelve a intentarlo
+            } while (valorIn % 2 === 0);
             secuencia = [valorIn];
             for (let i = 1; i < 5; i++) {
                 secuencia.push(valorIn + incremento * i);
@@ -65,7 +63,6 @@ function secuenciaNueva(level) {
             break;
 
         case 6:
-            // +9
             incremento = 9;
             valorIn = getValidvalorIn(min, max, incremento, 4);
             secuencia = [valorIn];
@@ -75,7 +72,6 @@ function secuenciaNueva(level) {
             break;
     
         case 7:
-            // Descendente -7
             incremento = -7;
             valorIn = getValidvalorIn(min + 28, max, 1, 0);
             secuencia = [valorIn];
@@ -85,7 +81,6 @@ function secuenciaNueva(level) {
             break;
     
         case 8:
-            // +5
             incremento = 5;
             valorIn = getValidvalorIn(min, max, incremento, 4);
             secuencia = [valorIn];
@@ -95,7 +90,6 @@ function secuenciaNueva(level) {
             break;
     
         case 9:
-            // Descendente -6
             incremento = -6;
             valorIn = getValidvalorIn(min + 28, max, 1, 0);
             secuencia = [valorIn];
@@ -105,7 +99,6 @@ function secuenciaNueva(level) {
             break;
     
         case 10:
-            // Incrementos crecientes: +1, +2, +3, +4...
             valorIn = getValidvalorIn(min, max, 1, 0);
             secuencia = [valorIn];
             for (let i = 1; i < 5; i++) {
@@ -114,7 +107,6 @@ function secuenciaNueva(level) {
             break;
     
         default:
-            // +1 constante
             incremento = 1;
             valorIn = getValidvalorIn(min, max, incremento, 4);
             secuencia = [valorIn];
@@ -124,13 +116,11 @@ function secuenciaNueva(level) {
             break;
     }
     
-
-    // Coloca "?" en una posición aleatoria (excepto la última)
     const questionIndex = Math.floor(Math.random() * secuenciaLength);
     respCorrect = secuencia[questionIndex];
     secuencia[questionIndex] = "?";
 
-    // Genera respuestas incorrectas
+
     let respErr1, respErr2;
     do {
         respErr1 = respCorrect + Math.floor(Math.random() * 5) + 1;
@@ -140,7 +130,7 @@ function secuenciaNueva(level) {
         respErr2 = respCorrect - Math.floor(Math.random() * 5) - 1;
     } while (respErr2 === respCorrect || respErr2 === respErr1 || respErr2 < min || respErr2 > max);
 
-    // Baraja opciones
+
     opciones = [respCorrect, respErr1, respErr2].sort(() => Math.random() - 0.5);
     correctIndex = opciones.indexOf(respCorrect);
 }
@@ -210,14 +200,12 @@ function checkAnswer(selected, event) {
         document.getElementById('opciones-container').style.display = 'none';
     } else {
         intentos++;
-        document.getElementById('contador-intentos').textContent = intentos; // contabiliza los intentos
+        document.getElementById('contador-intentos').textContent = intentos;
 
 
-        // Aplica sacudida al botón presionado
         const btn = event.target;
         btn.classList.add('sacudir');
 
-        // Elimina la clase después de que termine la animación
         setTimeout(() => {
             btn.classList.remove('sacudir');
         }, 400);
@@ -247,7 +235,7 @@ function mostrarMensajeFlotante(texto) {
 
 function reiniciar() {
     intentos = 0;
-    document.getElementById('contador-intentos').textContent = intentos; // Actualiza el contador a cero
+    document.getElementById('contador-intentos').textContent = intentos;
 
     document.getElementById('window-notice').style.display = 'none';
     document.getElementById('window-notice2').style.display = 'none';
@@ -263,7 +251,7 @@ function nextLevel() {
         loadLevel();
     } else {
         document.getElementById('feedback').textContent = '¡Has completado todos los niveles!';
-        document.getElementById('opciones-container').style.display = 'none'; // Opcional: oculta opciones
+        document.getElementById('opciones-container').style.display = 'none'; 
     }
 }
 
