@@ -26,29 +26,29 @@ function secuenciaNueva(level) {
             valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
         case 3:
-            // Impares (e.g., 1, 3, 5, ?)
-            incremento = 2;
-            valorIn = getValidOddvalorIn(min, max, 3);
+            // Descendente -1 (e.g., 10, 9, 8, ?)
+            incremento = -4;
+            valorIn = getValidvalorIn(min + 3, max, incremento, 3);
             break;
         case 4:
-            // +3 (e.g., 3, 6, 9, ?)
-            incremento = 3;
-            valorIn = getValidvalorIn(min, max, incremento, 3);
-            break;
+            // Alterna +1 y +2 (e.g., 3, 4, 6, 7, ?)
+            valorIn = getValidvalorIn(min, max - 6, 1, 3);
+            secuencia = [valorIn, valorIn + 1, valorIn + 3, valorIn + 4];
+            respCorrect = valorIn + 6;
         case 5:
             // Descendente -1 (e.g., 10, 9, 8, ?)
             incremento = -1;
             valorIn = getValidvalorIn(min + 3, max, incremento, 3);
             break;
         case 6:
-            // Pares (e.g., 2, 4, 6, ?)
+            // Impares (e.g., 1, 3, 5, ?)
             incremento = 2;
-            valorIn = getValidEvenvalorIn(min, max, 3);
+            valorIn = getValidOddvalorIn(min, max, 3);
             break;
         case 7:
             // -3, (e.g., 21, 18, 15, ?)
             incremento = -3;
-            valorIn = getValidvalorIn(min + 9, max, incremento, 3); // Para que no sea muy bajo al restar
+            valorIn = getValidvalorIn(min + 9, max, incremento, 3); 
             secuencia = [valorIn, valorIn + incremento, valorIn + incremento * 2];
             respCorrect = valorIn + incremento * 3;
             break;
