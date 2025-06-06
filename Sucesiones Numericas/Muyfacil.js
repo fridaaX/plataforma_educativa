@@ -12,64 +12,52 @@ function secuenciaNueva(level) {
     let valorIn, incremento, respCorrect;
     secuencia = [];
 
-
-
     switch (parseInt(level)) {
         case 1:
-            // +1 (e.g., 3, 4, 5, ?)
             incremento = 1;
             valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
         case 2:
-            // +2 (e.g., 2, 4, 6, ?)
             incremento = 2;
             valorIn = getValidvalorIn(min, max, incremento, 3);
             break;
         case 3:
-            // Descendente -1 (e.g., 10, 9, 8, ?)
             incremento = -4;
             valorIn = getValidvalorIn(min + 3, max, incremento, 3);
             break;
         case 4:
-            // Alterna +1 y +2 (e.g., 3, 4, 6, 7, ?)
             valorIn = getValidvalorIn(min, max - 6, 1, 3);
             secuencia = [valorIn, valorIn + 1, valorIn + 3, valorIn + 4];
             respCorrect = valorIn + 6;
         case 5:
-            // Descendente -1 (e.g., 10, 9, 8, ?)
             incremento = -1;
             valorIn = getValidvalorIn(min + 3, max, incremento, 3);
             break;
         case 6:
-            // Impares (e.g., 1, 3, 5, ?)
             incremento = 2;
             valorIn = getValidOddvalorIn(min, max, 3);
             break;
         case 7:
-            // -3, (e.g., 21, 18, 15, ?)
             incremento = -3;
             valorIn = getValidvalorIn(min + 9, max, incremento, 3); 
             secuencia = [valorIn, valorIn + incremento, valorIn + incremento * 2];
             respCorrect = valorIn + incremento * 3;
             break;
         case 8:
-            // +5, (e.g., 5, 10, 15, ?
             incremento = 5;
             valorIn = getValidvalorIn(min, max, incremento, 3);
             secuencia = [valorIn, valorIn + incremento, valorIn + incremento * 2];
             respCorrect = valorIn + incremento * 3;
             break;
         case 9:
-            // Multiplicación ×2 (e.g., 1, 2, 4, ?)
-            valorIn = Math.floor(Math.random() * 3) + 1; // 1, 2 o 3
+            valorIn = Math.floor(Math.random() * 3) + 1;
             secuencia = [valorIn, valorIn * 2, valorIn * 4];
             respCorrect = valorIn * 8;
             break;
         case 10:
-            // Multiplos de 4 (e.g., 4, 8, 12, ?)
             incremento = 4;
             valorIn = getValidvalorIn(4, max, incremento, 3);
-            if (valorIn % 4 !== 0) valorIn += (4 - valorIn % 4); // Asegurar múltiplo de 4
+            if (valorIn % 4 !== 0) valorIn += (4 - valorIn % 4);
             secuencia = [valorIn, valorIn + incremento, valorIn + incremento * 2];
             respCorrect = valorIn + incremento * 3;
             break;
@@ -170,7 +158,7 @@ function checkAnswer(selected, event) {
         document.getElementById('opciones-container').style.display = 'none';
     } else {
         intentos++;
-        document.getElementById('contador-intentos').textContent = intentos; // contabiliza los intentos
+        document.getElementById('contador-intentos').textContent = intentos;
 
         const btn = event.target;
         btn.classList.add('sacudir');
@@ -221,7 +209,7 @@ function nextLevel() {
         loadLevel();
     } else {
         document.getElementById('feedback').textContent = '¡Has completado todos los niveles!';
-        document.getElementById('opciones-container').style.display = 'none'; // Opcional: oculta opciones
+        document.getElementById('opciones-container').style.display = 'none';
     }
 }
 
