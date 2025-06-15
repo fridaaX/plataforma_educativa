@@ -23,7 +23,7 @@ const levels = [
         possibleAnswers: ["./IMG/Figuras_2/Niv4/CT5.jpg", "./IMG/Figuras_2/Niv4/CT6.jpg", "./IMG/Figuras_2/Niv4/CT7.jpg", "./IMG/Figuras_2/Niv4/CT4.jpg", "./IMG/Figuras_2/Niv4/CT8.jpg"]
     },
     {
-        sequence: ["./IMG/Figuras_2/Niv5/TM1.jpg", "pregunta.png", "./IMG/Figuras_2/Niv5/PD1.jpg", "pregunta.png", "./IMG/Figuras_2/Niv5/PD2.jpg"],
+        sequence: ["./IMG/Figuras_2/Niv5/Ta1.jpg","./IMG/Figuras_2/Niv5/PD1.jpg","./IMG/Figuras_2/Niv5/Tb1.jpg", "./IMG/Figuras_2/Niv5/PD2.jpg", "./IMG/Figuras_2/Niv5/C1.jpg", "pregunta.png", "./IMG/Figuras_2/Niv5/PD1.jpg", "pregunta.png", "./IMG/Figuras_2/Niv5/PD2.jpg"],
         answer: "./IMG/Figuras_2/Niv5/TM3.jpg",
         possibleAnswers: ["./IMG/Figuras_2/Niv5/TM2.jpg", "./IMG/Figuras_2/Niv5/TM3.jpg", "./IMG/Figuras_2/Niv5/TM4.jpg", "./IMG/Figuras_2/Niv5/TM5.jpg"]
     },
